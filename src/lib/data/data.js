@@ -38,7 +38,7 @@ export const cssStyles = [
 	{
 		rule: {
 			before: {
-				fontSize: `'changeThis': [`,
+				fontSize: `'changeThis': ['`,
 				width: `'changeThis': '`,
 				height: `'changeThis': '`,
 				lineHeight: `'changeThis': '`,
