@@ -37,7 +37,7 @@
 
 
 	class="outline-0 outline-offset-0 border-0 rounded-full {toggled ?
-	'bg-cyan-800' : 'bg-cyan-500'} cursor-pointer
+	'bg-indigo-500' : 'bg-indigo-700'} cursor-pointer
 	"
 
 	role="switch"
