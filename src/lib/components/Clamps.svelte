@@ -39,15 +39,16 @@
 </script>
 
 {#if $clamps.length > 0}
-	<div class="flex flex-col gap-6">
+	<div class="flex flex-col gap-6 w-full">
 		{#each $clamps as clampData, index (index)}
-			<div in:receive={{ key: index }} out:send={{ key: index }} animate:flip={{ duration: 100 }}>
+			<div in:receive={{ key: index }} out:send={{ key: index }}
+			animate:flip={{ duration: 100 }} class="w-full">
 				<Clamp {...clampData} {index} />
 			</div>
 		{/each}
 	</div>
 	{#if $clamps.length > 1}
-		<div class="flex gap-3" transition:slide={{ duration: 150 }}>
+		<div class="flex gap-3 flex-wrap" transition:slide={{ duration: 150 }}>
 			<button
 				on:click={copyAllClamps}
 				class="flex flex-1 items-center
@@ -74,7 +75,7 @@
 			</button>
 			<button
 				on:click={() => clamps.removeAllClamps()}
-				class="flex w-max items-center
+				class="flex w-max items-center flex-1 sm:flex-initial
                 justify-center gap-4 rounded-xl bg-red-100 stroke-red-900 py-4
                 px-6 text-red-900 transition-colors focus-within:bg-red-200 hover:bg-red-200 focus:bg-red-200"
 			>

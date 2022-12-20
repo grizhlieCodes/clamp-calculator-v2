@@ -12,7 +12,7 @@
 	onMount(() => { clamps.updateClampsFromLocalData() })
 </script>
 
-<main class="min-h-[150vh] bg-slate-50 w-full">
+<main class="min-h-[150vh] min-w-screen bg-slate-50 w-full">
 	<Header />
 	<div
 		class="flex flex-wrap h-max min-h-[30rem] w-full justify-center items-start gap-20 py-20

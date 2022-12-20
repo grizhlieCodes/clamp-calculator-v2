@@ -1,7 +1,7 @@
 <script lang="ts">
 	import rules from '$lib/stores/selected';
-    import ClampCopied from '$lib/components/ClampCopied.svelte';
-    import clamps from '$lib/stores/clamps';
+	import ClampCopied from '$lib/components/ClampCopied.svelte';
+	import clamps from '$lib/stores/clamps';
 
 	export let minViewport: number,
 		maxViewport: number,
@@ -49,28 +49,31 @@
 	$: display = `${displayBefore}${displayMinSize}${displayCalc}${displayMaxSize}${displayAfter}`;
 
 	const copyString = () => {
-        showMessage = true
-        setTimeout(() => {
-            showMessage = false
-        }, 750)
-        navigator.clipboard.writeText(display)
-    };
+		showMessage = true;
+		setTimeout(() => {
+			showMessage = false;
+		}, 750);
+		navigator.clipboard.writeText(display);
+	};
 
-    let showMessage = false;
-
-
+	let showMessage = false;
 </script>
 
-<div class="relative  flex rounded-xl">
+<div class="relative flex max-w-full flex-col flex-wrap rounded-xl md:flex-row">
 	<button
 		on:click={copyString}
-		class="flex flex-1
-	items-center justify-between rounded-tl-xl rounded-bl-xl bg-green-100 stroke-green-900 py-5
-	 pl-8 text-green-900 transition-colors focus-within:bg-green-200 hover:bg-green-200 focus:bg-green-200"
+		class="flex max-w-full flex-1
+	items-center justify-between rounded-tl-xl rounded-tr-xl md:rounded-bl-xl md:rounded-tr-none bg-green-100 stroke-green-900 py-5
+	 px-8 text-green-900 transition-colors focus-within:bg-green-200 focus:bg-green-200 hover:bg-green-200"
 	>
 		<!-- text  -->
-		<p class="flex-1 text-left text-xl font-normal clamp-text-to-copy">{display}</p>
-		<div class="min-w-[72px]">
+		<p
+			class="clamp-text-to-copy w-full flex-1 py-2 text-left text-xl font-normal
+		scrollbar-thin scrollbar-track-green-200 scrollbar-thumb-green-300 scrollbar-corner-slate-400 "
+		>
+			{display}
+		</p>
+		<div class="hidden min-w-[72px] md:block">
 			<svg
 				class="h-5 stroke-inherit"
 				viewBox="0 0 19 22"
@@ -86,9 +89,15 @@
 			</svg>
 		</div>
 	</button>
-	<button on:click={() => {clamps.removeClamp(index); console.log(index)}}
-		class="rounded-tr-xl rounded-br-xl bg-red-100 stroke-red-700
-	py-5 px-8 transition-colors focus-within:bg-red-200 hover:bg-red-200 focus:bg-red-200"
+	<button
+		on:click={() => {
+			clamps.removeClamp(index);
+			console.log(index);
+		}}
+		class="flex flex-1 items-center  justify-center rounded-br-xl rounded-bl-xl
+	bg-red-100 stroke-red-700 py-5 px-8 transition-colors
+	focus-within:bg-red-200 focus:bg-red-200 hover:bg-red-200 md:flex-initial
+	md:rounded-bl-none md:rounded-tr-xl"
 	>
 		<svg
 			class="h-5 stroke-inherit"
@@ -105,7 +114,5 @@
 		</svg>
 	</button>
 
-    <ClampCopied {showMessage} />
-
-
+	<ClampCopied {showMessage} />
 </div>
