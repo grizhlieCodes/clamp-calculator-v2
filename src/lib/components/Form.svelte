@@ -54,7 +54,7 @@
 </script>
 
 <div class="flex flex-1 basis-80 flex-col gap-6">
-	<div class="flex gap-2 text-2xl font-bold">
+	<div class="flex gap-2 text-2xl font-bold text-neutral-900 transition-colors dark:text-slate-300">
 		<h2>Select CSS Style</h2>
 		<AdditionalInfo {...additionalInfoUpdateVariables} />
 	</div>
@@ -65,18 +65,24 @@
 				{@const varName = variable[0]}
 				<label for={varName} class="group flex flex-col gap-3">
 					<div class="flex gap-1">
-						<p class="text-xl font-medium">{variable[1].name}</p>
+						<p class="text-xl font-medium text-neutral-900 transition-colors dark:text-slate-200">
+							{variable[1].name}
+						</p>
 					</div>
 					<input
 						type="number"
 						id={varName}
-						class="rounded-xl border
-                    border-neutral-300 py-3 px-4 text-base
+						class="rounded-xl border dark:outline-none
+						bg-white dark:bg-slate-800 dark:text-slate-200
+                    border-neutral-300 dark:border-slate-700 py-3 px-4 text-base
                     transition-all
                     group-focus-within:border-blue-600
+					dark:group-focus-within:border-blue-700
                     group-focus-within:bg-blue-100
+					dark:group-focus-within:bg-gray-900
                     group-focus-within:font-medium
                     group-focus-within:text-blue-900
+					dark:group-focus-within:text-blue-200
                       "
 						bind:value={variable[1].value}
 					/>
@@ -86,8 +92,9 @@
 
 		<button
 			type="submit"
-			class="rounded-xl bg-indigo-600 text-xl
-        font-bold text-indigo-50 py-3 hover:bg-indigo-800 focus:bg-indigo-800 transition-colors"
+			class="rounded-xl bg-indigo-600 dark:bg-indigo-700 py-3
+		text-xl font-bold text-indigo-50 transition-colors focus:bg-indigo-800
+		dark:focus:bg-indigo-900 hover:bg-indigo-800 dark:hover:bg-indigo-900"
 		>
 			<span> Add Clamp + </span>
 		</button>

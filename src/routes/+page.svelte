@@ -6,16 +6,21 @@
 	import Form from '$lib/components/Form.svelte';
 	import Clamps from '$lib/components/Clamps.svelte';
 	import { onMount } from 'svelte';
-	import clamps from '$lib/stores/clamps'
+	import clamps from '$lib/stores/clamps';
+	import darkmode from '$lib/stores/darkmode'
 	let mounted = false;
 
-	onMount(() => { clamps.updateClampsFromLocalData() })
+	onMount(() => {
+		clamps.updateClampsFromLocalData();
+		darkmode.updateDarkmodeFromLocalStorage()
+	});
 </script>
 
-<main class="min-h-[150vh] min-w-screen bg-slate-50 w-full">
+<main class="min-w-screen min-h-[150vh] w-full bg-slate-50 dark:bg-[#0A1423]
+transition-colors ">
 	<Header />
 	<div
-		class="flex flex-wrap h-max min-h-[30rem] w-full justify-center items-start gap-20 py-20
+		class="flex h-max min-h-[30rem] w-full flex-wrap items-start justify-center gap-20 py-20
 	px-6"
 	>
 		<Card>
@@ -28,44 +33,3 @@
 		</Card>
 	</div>
 </main>
-
-<!-- 	
-    const rules = {
-		css: {
-			before: {
-				fontSize: 'font-size: ',
-				width: 'width: ',
-				height: 'height: ',
-				lineHeight: 'line-height: ',
-				none: ''
-			},
-			after: ';',
-			spacing: ' '
-		},
-		tailwind: {
-			before: {
-				fontSize: 'text-[',
-				width: 'w-[: ',
-				height: 'h-[',
-				lineHeight: 'leading-['
-			},
-			after: ']',
-			spacing: '_'
-		},
-		tailwindConfig: {
-			before: `changeThis': [`,
-			after: `', {}]`,
-			spacing: ' '
-		},
-		cssVariable: {
-			before: `--changeThis: `,
-			after: `;`,
-			spacing: ` `
-		},
-		sassVariable: {
-			before: `$changeThis: `,
-			after: `;`,
-			spacing: ` `
-		}
-	};
- -->

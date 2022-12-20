@@ -19,7 +19,7 @@
 </script>
 
 
-<div class="flex gap-2 text-2xl font-bold">
+<div class="flex gap-2 text-2xl font-bold text-neutral-900 dark:text-slate-300 transition-colors">
     <h2>Select CSS Style</h2>
     <AdditionalInfo {...additionalInfoCssStyle} />
 </div>

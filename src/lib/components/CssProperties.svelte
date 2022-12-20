@@ -18,7 +18,7 @@
 	export let cssProperties: style[] = [];
 </script>
 
-<div class="flex gap-2 text-2xl font-bold">
+<div class="flex gap-2 text-2xl font-bold text-neutral-900 dark:text-slate-300 transition-colors">
 	<h2>Select CSS Property</h2>
 	<AdditionalInfo {...additionalInfoCssProperty} />
 </div>

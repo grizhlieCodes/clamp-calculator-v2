@@ -5,6 +5,7 @@
 	import { quintOut } from 'svelte/easing';
 	import { crossfade, fly, slide } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
+	import ClampCopied from './ClampCopied.svelte';
 
 	const [send, receive] = crossfade({
 		duration: (d) => Math.sqrt(d * 200),
@@ -24,7 +25,13 @@
 		}
 	});
 
+	let showMessage = false;
+
 	const copyAllClamps = () => {
+		showMessage = true;
+		setTimeout(() => {
+			showMessage = false;
+		}, 750);
 		let copyText = ``;
 		const allParagraphs = [...document.querySelectorAll('p.clamp-text-to-copy')];
 		allParagraphs.forEach((p, i) => {
@@ -32,29 +39,35 @@
 			copyText = copyText + newText;
 		});
 		copyText = copyText.split('___').join('\n');
-		// copyText.split('___').join('\n')
 		navigator.clipboard.writeText(copyText);
-		console.log(copyText);
 	};
 </script>
 
 {#if $clamps.length > 0}
-	<div class="flex flex-col gap-6 w-full">
+	<div class="flex w-full flex-col gap-6">
 		{#each $clamps as clampData, index (index)}
-			<div in:receive={{ key: index }} out:send={{ key: index }}
-			animate:flip={{ duration: 100 }} class="w-full">
+			<div
+				in:receive={{ key: index }}
+				out:send={{ key: index }}
+				animate:flip={{ duration: 100 }}
+				class="w-full"
+			>
 				<Clamp {...clampData} {index} />
 			</div>
 		{/each}
 	</div>
 	{#if $clamps.length > 1}
-		<div class="flex gap-3 flex-wrap" transition:slide={{ duration: 150 }}>
+		<div class="flex flex-wrap gap-3" transition:slide={{ duration: 150 }}>
 			<button
 				on:click={copyAllClamps}
-				class="flex flex-1 items-center
-                justify-center gap-4 rounded-xl bg-green-100 stroke-green-900 py-4
-                pl-5 text-green-900 transition-colors focus-within:bg-green-200 hover:bg-green-200 focus:bg-green-200"
+				class="relative flex flex-1 items-center
+                justify-center gap-4 rounded-xl bg-green-100 stroke-green-900 py-4 pl-5
+			text-green-900 transition-colors focus-within:bg-green-200 focus:bg-green-200
+			hover:bg-green-200 dark:bg-indigo-700
+			dark:stroke-indigo-100 dark:text-indigo-100 dark:focus-within:bg-indigo-900
+			dark:focus:bg-indigo-900 dark:hover:bg-indigo-900"
 			>
+				<ClampCopied {showMessage} message="All Clamps Copied! ✅" />
 				<!-- text  -->
 				<p class="w-max text-center text-xl font-normal">Copy All</p>
 				<div class="">
@@ -75,9 +88,14 @@
 			</button>
 			<button
 				on:click={() => clamps.removeAllClamps()}
-				class="flex w-max items-center flex-1 sm:flex-initial
-                justify-center gap-4 rounded-xl bg-red-100 stroke-red-900 py-4
-                px-6 text-red-900 transition-colors focus-within:bg-red-200 hover:bg-red-200 focus:bg-red-200"
+				class="relative flex w-max flex-1 items-center justify-center gap-4
+			rounded-xl bg-red-100 stroke-red-900 py-4 px-6 text-red-900
+			transition-colors focus-within:bg-red-200 focus:bg-red-200
+			hover:bg-red-200 dark:border dark:border-slate-100
+			dark:bg-transparent dark:stroke-slate-100 dark:text-slate-100
+			dark:focus-within:border-red-700 dark:focus-within:bg-red-900
+			dark:focus:border-red-700 dark:focus:bg-red-900
+			dark:hover:border-red-700 dark:hover:bg-red-900 sm:flex-initial"
 			>
 				<!-- text  -->
 				<p class="w-max text-center text-xl font-normal">Remove All</p>
@@ -100,7 +118,7 @@
 		</div>
 	{/if}
 {:else}
-	<h2 class="text-2xl font-bold" transition:fly={{ x: 50, duration: 150 }}>
+	<h2 class="text-2xl font-bold text-neutral-900 dark:text-slate-200" transition:fly={{ x: 50, duration: 150 }}>
 		Add some clamps, then copy them from here!
 	</h2>
 {/if}

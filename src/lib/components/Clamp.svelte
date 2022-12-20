@@ -63,13 +63,18 @@
 	<button
 		on:click={copyString}
 		class="flex max-w-full flex-1
-	items-center justify-between rounded-tl-xl rounded-tr-xl md:rounded-bl-xl md:rounded-tr-none bg-green-100 stroke-green-900 py-5
-	 px-8 text-green-900 transition-colors focus-within:bg-green-200 focus:bg-green-200 hover:bg-green-200"
+	items-center justify-between rounded-tl-xl rounded-tr-xl bg-green-100
+	dark:bg-slate-700 stroke-green-900 dark:stroke-slate-100  py-5 px-8
+	text-green-900 dark:text-slate-100
+	transition-colors focus-within:bg-green-200 dark:focus-within:bg-emerald-900
+	focus:bg-green-200 dark:focus:bg-emerald-900 hover:bg-green-200 dark:hover:bg-emerald-900 md:rounded-bl-xl md:rounded-tr-none"
 	>
 		<!-- text  -->
 		<p
 			class="clamp-text-to-copy w-full flex-1 py-2 text-left text-xl font-normal
-		scrollbar-thin scrollbar-track-green-200 scrollbar-thumb-green-300 scrollbar-corner-slate-400 "
+		scrollbar-thin scrollbar-track-green-200 dark:scrollbar-track-slate-900
+		scrollbar-thumb-green-300 dark:scrollbar-thumb-gray-600
+		scrollbar-corner-slate-400 "
 		>
 			{display}
 		</p>
@@ -95,8 +100,9 @@
 			console.log(index);
 		}}
 		class="flex flex-1 items-center  justify-center rounded-br-xl rounded-bl-xl
-	bg-red-100 stroke-red-700 py-5 px-8 transition-colors
-	focus-within:bg-red-200 focus:bg-red-200 hover:bg-red-200 md:flex-initial
+	bg-red-100 stroke-red-700 dark:bg-slate-800 dark:stroke-slate-400 py-5 px-8 transition-colors
+	focus-within:bg-red-200 dark:focus-within:bg-red-900 focus:bg-red-200
+	dark:focus:bg-red-900 	hover:bg-red-200 dark:hover:bg-red-900 md:flex-initial
 	md:rounded-bl-none md:rounded-tr-xl"
 	>
 		<svg
