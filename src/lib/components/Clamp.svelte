@@ -25,6 +25,7 @@
 
 	//Store the default rules here, when we update our store, our styling,
 	//befores and afters will also change the final outputs that users can copy
+	let styleRule: any;
 	$: styleRule = $rules.styleRule;
 	$: propertyRule = $rules.propertyRule;
 
