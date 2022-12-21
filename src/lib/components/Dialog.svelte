@@ -9,12 +9,12 @@
 
 <dialog
 	bind:this={dialog}
-	class=" max-w-md flex-col transition-all 
-{modalOpen
-		? 'opacity-100 backdrop:bg-slate-900/50'
-		: `opacity-0
-backdrop:bg-slate-900/50 dark:backdrop:bg-slate-900/30`}
-     gap-2 rounded-2xl bg-white px-6 dark:bg-slate-700  "
+	class=" mx-6 max-w-md flex-col transition-all 
+			{modalOpen ? 'opacity-100 backdrop:bg-slate-900/50 flex'	: 
+			`opacity-0 backdrop:bg-slate-900/50 dark:backdrop:bg-slate-900/30`}
+			gap-2 rounded-2xl bg-white px-6 dark:bg-slate-700  
+			
+			"
 >
 	<h3 class="text-xl font-bold text-neutral-900 transition-colors dark:text-slate-50">
 		{modalHeading}
@@ -24,7 +24,7 @@ backdrop:bg-slate-900/50 dark:backdrop:bg-slate-900/30`}
 	</p>
 	<button
 		on:click={() => dispatch('closeDialog')}
-		class="mt-2 w-max rounded-md bg-blue-100 px-4
+		class="mt-4 w-max rounded-md bg-blue-100 px-4
          py-2 text-base font-medium text-blue-900 transition-colors focus:bg-blue-200 
          hover:bg-blue-200 dark:bg-blue-700 dark:text-blue-50 dark:focus:bg-blue-600 dark:hover:bg-blue-600"
 		>Close Modal</button
