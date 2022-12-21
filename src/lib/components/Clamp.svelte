@@ -65,7 +65,7 @@
 		on:click={copyString}
 		class="flex max-w-full flex-1
 	items-center justify-between rounded-tl-xl rounded-tr-xl bg-green-100
-	dark:bg-slate-700 stroke-green-900 dark:stroke-slate-100  py-5 px-8
+	dark:bg-slate-700 stroke-green-900 dark:stroke-slate-100  py-5 px-8 md:pr-0
 	text-green-900 dark:text-slate-100
 	transition-colors focus-within:bg-green-200 dark:focus-within:bg-emerald-900
 	focus:bg-green-200 dark:focus:bg-emerald-900 hover:bg-green-200 dark:hover:bg-emerald-900 md:rounded-bl-xl md:rounded-tr-none"
@@ -79,7 +79,7 @@
 		>
 			{display}
 		</p>
-		<div class="hidden min-w-[72px] md:block">
+		<div class="hidden w-[100px] md:grid place-items-center">
 			<svg
 				class="h-5 stroke-inherit"
 				viewBox="0 0 19 22"
