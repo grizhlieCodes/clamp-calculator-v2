@@ -1,17 +1,17 @@
 <script lang="ts">
 	import CssProperties from '$lib/components/CssProperties.svelte';
-	import CssStyles from '$lib/components/CssStyles.svelte';
+	import CssTechnologies from '$lib/components/CssTechnologies.svelte';
 	import selectedStore from '$lib/stores/selected';
-	import { cssStyles, cssProperties } from '$lib/data/data';
+	import { cssTechnologies, cssProperties } from '$lib/data/data';
 	import { onMount } from 'svelte';
 
 	onMount(() => {
 		selectedStore.updateOnMount();
 	});
 
-	const updateStoreStyle = (newStyle: string) => {
-		selectedStore.updateStyle(newStyle);
-		if (newStyle !== 'CSS' && $selectedStore.property === 'None') {
+	const updateStoreTechnology = (newTechnology: string) => {
+		selectedStore.updateTechnology(newTechnology);
+		if (newTechnology !== 'CSS' && $selectedStore.property === 'None') {
 			updateStoreProperty('Width');
 		}
 	};
@@ -19,8 +19,8 @@
 	const updateStoreProperty = (newProperty: string) => {
 		selectedStore.updateProperty(newProperty);
 		if (newProperty === 'None') {
-			updateStoreStyle('CSS');
-			const rule = cssStyles.find((style) => style.name === 'CSS').rule;
+			updateStoreTechnology('CSS');
+			const rule = cssTechnologies.find((tech) => tech.name === 'CSS').rule;
 			updateStoreStyleRule(rule);
 		}
 	};
@@ -34,8 +34,8 @@
 	};
 
 	const handleStyleClick = (e: any) => {
-		updateStoreStyle(e.detail);
-		const rule = cssStyles.find((style) => style.name === e.detail).rule;
+		updateStoreTechnology(e.detail);
+		const rule = cssTechnologies.find((tech) => tech.name === e.detail).rule;
 		if (rule) {
 			updateStoreStyleRule(rule);
 		}
@@ -54,7 +54,7 @@
 <div class="flex flex-wrap gap-14 ">
 	<!-- Css Styles Selection -->
 	<div class="flex flex-1 basis-80 flex-col gap-6">
-		<CssStyles {cssStyles} on:btnClick={handleStyleClick} />
+		<CssTechnologies {cssTechnologies} on:btnClick={handleStyleClick} />
 	</div>
 
 	<div class="flex flex-1 basis-80 flex-col gap-6">

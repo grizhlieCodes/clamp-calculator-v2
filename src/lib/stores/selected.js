@@ -1,13 +1,13 @@
 import {get, writable} from 'svelte/store';
-import {cssStyles, cssProperties} from '$lib/data/data'
+import {cssTechnologies, cssProperties} from '$lib/data/data'
 
-const selected = writable({style: '', property: '', styleRule: {after: '', spacing: '', before: '' || {}}, propertyRule: ''})
+const selected = writable({technology: '', property: '', styleRule: {after: '', spacing: '', before: '' || {}}, propertyRule: ''})
 
 const customSelected = {
     subscribe: selected.subscribe,
-    updateStyle: (newStyle) => {
+    updateTechnology: (newTechnology) => {
         selected.update(tempSelected => {
-            tempSelected.style = newStyle
+            tempSelected.technology = newTechnology
             return tempSelected
         })
     },
@@ -31,9 +31,9 @@ const customSelected = {
     },
     updateOnMount: () => {
         selected.update(tempSelected => {
-            tempSelected.style = cssStyles[0].name
+            tempSelected.technology = cssTechnologies[0].name
             tempSelected.property = cssProperties[0].name
-            tempSelected.styleRule = cssStyles[0].rule
+            tempSelected.styleRule = cssTechnologies[0].rule
             tempSelected.propertyRule = cssProperties[0].rule
             return tempSelected
         })
