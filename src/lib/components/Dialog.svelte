@@ -9,7 +9,7 @@
 
 <dialog
 	bind:this={dialog}
-	class=" mx-6 max-w-md flex-col transition-all 
+	class=" mx-auto max-w-md flex-col transition-all 
 			{modalOpen ? 'opacity-100 backdrop:bg-slate-900/50 flex'	: 
 			`opacity-0 backdrop:bg-slate-900/50 dark:backdrop:bg-slate-900/30`}
 			gap-2 rounded-2xl bg-white px-6 dark:bg-slate-700  
