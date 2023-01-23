@@ -6,8 +6,8 @@
 		ariaLabel:
 			'Open modal with additional information on inputting variables for the clamp function.',
 		dialogContent:
-			'Clamp is a function that helps us with growing content, be it width or font-size, and it requires 3 main variables: minimum size, calculation and maximum size. The variables in this section set and calculate everything for a perfectly fluid clamp calculation between the min and max sizes.',
-		modalHeading: 'CSS Variables?'
+			'Clamp is a function that helps us with growing content, be it width or font-size, and it requires 3 main values: Minimum size, Calculation and Maximum size. The values in this section set and calculate everything for a perfectly flui  clamp calculation between the min and max sizes.',
+		modalHeading: 'CSS Masurements?'
 	};
 
 	const variables = {
@@ -55,7 +55,7 @@
 
 <div class="flex flex-1 basis-80 flex-col gap-6">
 	<div class="flex gap-2 text-2xl font-bold text-neutral-900 transition-colors dark:text-slate-300">
-		<h2>Select CSS Style</h2>
+		<h2>Select CSS Masurements</h2>
 		<AdditionalInfo {...additionalInfoUpdateVariables} />
 	</div>
 
