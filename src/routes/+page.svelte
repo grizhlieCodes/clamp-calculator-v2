@@ -14,7 +14,7 @@
 	});
 </script>
 
-<main class="min-w-screen h-max pb-40 w-full bg-slate-50 dark:bg-[#0A1423]
+<main class="min-w-screen h-max pb-40 w-full 
 transition-colors ">
 	<Header />
 	<div
