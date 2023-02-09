@@ -1,38 +1,18 @@
-# create-svelte
+# Clamp Calculator - V2
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+[Tool link](https://grizhlie-clamp-calculator-v2.netlify.app)
 
-## Creating a project
+I wanted to build some simple tool that helps you build things quicker when
+using the CSS clamp property. 
 
-If you're seeing this, you've probably already done this step. Congrats!
+This tool allows you to:
+- Select what CSS tech you're working with. After all, CSS is written
+  differently with vanilla or TailwindCSS. 
+- Retain the clamps you created (local storage)
+- Has a dark-mode, because why not.
+- Copy/remove a single clamp or copy/remove all clamps you have saved.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Bugs:
+- Currently the main bug is infuriating: if you scroll down and click 'Add Clamp
+  +', you are automatically scrolled to the very top. No clue what that's about.
+  I've been attempting to recreate this bug else where, so far I have failed. 
